@@ -1,52 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
-<title>E-COMERCE</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>E-COMERCE</title>
+  </head>
+  <body>
     <header>
-        <a href="/index.html">Home</a>
-      <nav id="nav-bar">        
+      <a href="/index.html">Home</a>
+      <nav id="nav-bar">
         <a href="tienda.html">Tienda</a>
         <a href="stock.html">Stock</a>
         <a href="contacto.html">Contacto</a>
       </nav>
       <p>carrito</p>
     </header>
-    <main>
-        <article id="card-conteiner-productos" class="conteniner">
-            <div id="001" class="productConteiner">
-                <h3>Marca</h3>
-                <h3>Modelo</h3>
-                <img src="" alt="">
-                <h5>Talles:</h5>
-                <ul>
-                    <li>40</li>
-                    <li>42</li>
-                </ul>
-                <button>Ver detalle</button>
-                <button class="">Agregar al carrito</button>
-
-            </div>
-        </article>
-        <aside id="seleccion-filtros" class="conteniner">
+    <main id="tienda">
+      <div id="seleccion-filtros">
+        <span>Filtros:</span>
+        <select id="filtro-categoria" name="Categoria">
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+          <option value="3">Opción 3</option>
+        </select>
+        <select id="filtro-marca" name="Marca">
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+          <option value="3">Opción 3</option>
+        </select>
+      </div>
+      <div id="card-conteiner-productos">
+        <div id="001" class="productConteiner">
+            <h3>Marca</h3>
+            <h3>Modelo</h3>
+            <img src="/img/zapatillas/addidas1.jpg" alt="" />
+            <h5>Talles:</h5>
             <ul>
-                <li>Filtro 1</li>
-                <li>Filtro 2</li>
-                <li>Filtro 3</li>
-                <li>Filtro 4</li>
+              <li>40</li>
             </ul>
-
-        </aside>
-        
+            <button >Ver detalle</button>
+            <button >Agregar al carrito</button>
+          </div>
+          <div id="001" class="productConteiner">
+            <h3>Marca</h3>
+            <h3>Modelo</h3>
+            <img src="/img/zapatillas/addidas1.jpg" alt="" />
+            <h5>Talles:</h5>
+            <ul>
+              <li>40</li>
+            </ul>
+            <button >Ver detalle</button>
+            <button >Agregar al carrito</button>
+          </div>
+          <div id="001" class="productConteiner">
+            <h3>Marca</h3>
+            <h3>Modelo</h3>
+            <img src="/img/zapatillas/addidas1.jpg" alt="" />
+            <h5>Talles:</h5>
+            <ul>
+              <li>40</li>
+            </ul>
+            <button >Ver detalle</button>
+            <button >Agregar al carrito</button>
+          </div>
+          <div id="001" class="productConteiner">
+            <h3>Marca</h3>
+            <h3>Modelo</h3>
+            <img src="/img/zapatillas/addidas1.jpg" alt="" />
+            <h5>Talles:</h5>
+            <ul>
+              <li>40</li>
+            </ul>
+            <button >Ver detalle</button>
+            <button >Agregar al carrito</button>
+          </div>
+      
+    </div>
+</div>
+    
     </main>
-    <footer></footer>    
-</body>
+    <footer></footer>
+  </body>
 </html>
