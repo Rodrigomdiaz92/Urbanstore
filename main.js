@@ -8,7 +8,7 @@ const productos = [
       precio: 45000,
       stock: 12,
       color: "Negro",
-      imagen: "nike-air-max.jpg"
+      imagen: "/img/zapatillas/nike1.jpg"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const productos = [
       precio: 50000,
       stock: 8,
       color: "Blanco",
-      imagen: "adidas-ultraboost.jpg"
+      imagen: "/img/zapatillas/addidas1.jpg"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const productos = [
       precio: 12000,
       stock: 20,
       color: "Gris",
-      imagen: "puma-essentials.jpg"
+      imagen: "/img/camisetas/nike1.jpg"
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ const productos = [
       precio: 14000,
       stock: 15,
       color: "Negro",
-      imagen: "nike-sportswear.jpg"
+      imagen: "/img/zapatillas/addidas2.jpg"
     }
   ];
 
@@ -49,8 +49,21 @@ function publicarProductos(productos){
   document.getElementById("card-conteiner-productos").innerHTML = "";
 
   productos.forEach(producto => {
-    const html =`<h2 class="titulo-producto">${producto.nombre}</h2>`;
-    //const html =``;
+    //const html =`<h2 class="titulo-producto">${producto.nombre}</h2>`;
+    const html =`
+    <div id="${producto.nombre}" class="productConteiner">
+            <h3>${producto.nombre}</h3>
+            <a href=""></a><img src="${producto.imagen}" alt="${producto.nombre}" /></a>
+            <h5>Talles:</h5>
+            <div>
+            ${producto.talle}
+            </div>
+            
+            
+            <h5>$${producto.precio}</h5>            
+            <button >Agregar al carrito</button>
+          </div>
+    `;
     console.log("hola")
 
     document.getElementById("card-conteiner-productos").insertAdjacentHTML('beforeend', html);
@@ -72,4 +85,4 @@ function publicarProductos(productos){
     //let productosFiltrados= 
   }
 
-  //publicarProductos(productos);
+  publicarProductos(productos);
