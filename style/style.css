@@ -16,8 +16,8 @@
 
 :root {
     --color-principal: #222;
-    --color-secundario: #3f6929;
-    --color-terciario: #006671;
+    --color-secundario: #ffffff;
+    --color-terciario: #DCDCDC ;
     --color-errror: #ff5449;
     --color-neutral:#90918c;
     --color-fondo: #f5f5f5;
@@ -70,8 +70,32 @@ header a{
 }
 
 body{
-    background-color: #DCDCDC ;
+    background-color: var(--color-terciario)
 }
+
+#promociones{
+    overflow: hidden;  
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: rgb(153, 150, 150);
+    padding: 10px;
+    position: relative;
+    h3 {
+        display: inline-block;
+        white-space: nowrap;      
+        position: relative;
+        animation: moverTexto 14s linear infinite;  
+      }
+}
+
+@keyframes moverTexto {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
 
 footer{
     background-color: var(--color-principal);

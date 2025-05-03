@@ -10,29 +10,7 @@
     }
 }
 
-#promociones{
-    overflow: hidden;  
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: rgb(153, 150, 150);
-    padding: 10px;
-    position: relative;
-    h3 {
-        display: inline-block;
-        white-space: nowrap;      
-        position: relative;
-        animation: moverTexto 14s linear infinite;  
-      }
-}
 
-@keyframes moverTexto {
-    0% {
-      left: 100%;
-    }
-    100% {
-      left: -100%;
-    }
-  }
 
 
 
