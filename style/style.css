@@ -31,18 +31,42 @@
 header{
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 75px;
+    grid-template-columns: 0.7fr 1fr 1fr;
+    max-height: 100px;
     background-color: var(--color-principal);
     color: var(--color-card); 
-    box-shadow: darkblue 
+    box-shadow: darkblue;
+    #logo{
+        justify-self: start;
+    }
+    #carrito{
+        justify-self: end;
+        margin-top: 10px;
+    }
+    #nav-bar{
+        justify-self: center;
+        text-align: center;
+        margin-top: 10px;
+    } 
 
 }
 header p{
     text-align: right;
 }
+header a img{
+    width: 30%;    
+    margin: 0px 10px; 
+
+}
+
 header a{
+    
     color: var(--color-card);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0px 10px;
+    
 }
 
 body{
@@ -86,12 +110,23 @@ footer{
 /* Estilos para pantallas de hasta 850px de ancho y 600px de alto */
 @media (max-width: 870px)  {
 
+    header a img{
+        width: 60%;    
+        margin: 0px 10px; 
+    
+    }
+
     
 
   }
 
 /* Estilos para pantallas de hasta 650px de ancho y 600px de alto */
 @media (max-width: 650px)  {
+    header a img{
+        width: 70%;    
+        margin: 0px 10px; 
+    
+    }
     
     
     
