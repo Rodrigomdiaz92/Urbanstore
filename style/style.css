@@ -15,7 +15,7 @@
 /*Variables de estilo */
 
 :root {
-    --color-principal: #296900;
+    --color-principal: #222;
     --color-secundario: #3f6929;
     --color-terciario: #006671;
     --color-errror: #ff5449;
@@ -44,6 +44,42 @@ header p{
 header a{
     color: var(--color-card);
 }
+
+body{
+    background-color: #DCDCDC ;
+}
+
+footer{
+    background-color: var(--color-principal);
+    color:white;
+    padding:40px 20px;
+
+    #footer-data{
+        display: grid;
+        grid-template-columns: 0.5fr 1fr ;
+        gap: 20px;
+        #footer-links{
+            font-size: x-large;           
+            justify-self: center;
+            a{
+                display: block;
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                margin: 5px 0px;
+            }
+        }
+        
+    }
+    #footer-copiright{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr;        
+        text-align: center;
+
+    }
+}
+
 
 
 

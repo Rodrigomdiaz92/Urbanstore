@@ -20,7 +20,7 @@
   </head>
   <body>
     <header>
-      <a href="/index.html">Home</a>
+      <a href="/index.html">UrbanStore</a>
       <nav id="nav-bar">
         <a href="tienda.html">Tienda</a>
         <a href="stock.html">Stock</a>
@@ -28,18 +28,24 @@
       </nav>
       <p>carrito</p>
     </header>
-    <main id="tienda">
+    <main>
+      <div id="promociones">
+        <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
+      </div>
+      <div id="tienda">
       <div id="seleccion-filtros">
         <span>Filtros:</span>
         <select id="filtro-categoria" name="Categoria">
-          <option value="1">Opción 1</option>
-          <option value="2">Opción 2</option>
-          <option value="3">Opción 3</option>
+          <option value="" selected disabled>Categoria</option>
+          <option value="Zapatillas">Zapatillas</option>
+          <option value="Remeras">Remeras</option>
+          
         </select>
         <select id="filtro-marca" name="Marca">
-          <option value="1">Opción 1</option>
-          <option value="2">Opción 2</option>
-          <option value="3">Opción 3</option>
+          <option value="" selected disabled>Marca</option>
+          <option value="Nike">Nike</option>
+          <option value="Addidas">Addidas</option>
+          <option value="Reebook">Reebook</option>
         </select>
         <button>Filtrar</button>
       </div>
@@ -91,9 +97,29 @@
       
     </div>
 </div>
-    
+    </div>
     </main>
-    <footer></footer>
+    <footer >
+      <div id="footer-data">    
+        <div >
+          <h3>UrbanStore</h3>
+          <p>Tu tienda de calzado deportivo favorita. Calidad, estilo y confort en cada paso.</p>
+        </div>
+        <div id="footer-links">
+          <h4>Seguinos en:</h4>
+          <a href="#" >Instagram</a>
+          <a href="#" >Facebook</a>
+          <a href="#" >WhatsApp</a>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <div id="footer-copiright">
+        <div>          
+        &copy; 2025 Tienda Zapatillas. Todos los derechos reservados.
+      </div>
+      </div>
+    </footer>
     <script src="/main.js"></script>
   </body>
 </html>
