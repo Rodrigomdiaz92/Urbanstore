@@ -55,7 +55,7 @@ function publicarProductos(productos){
     //const html =`<h2 class="titulo-producto">${producto.nombre}</h2>`;
     const html =`
     <div id="${producto.nombre}" class="productConteiner">
-            <a href=""></a><img src="${producto.imagen}" alt="${producto.nombre}" /></a>
+            <a href="detalleproducto.html?id=${producto.id}"><img src="${producto.imagen}" alt="${producto.nombre}" /></a>
             <h3>${producto.nombre}</h3>
             <h6>ENVIO GRATIS</h6>            
             <h5>$${producto.precio}</h5>            

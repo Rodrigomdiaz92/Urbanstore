@@ -51,32 +51,37 @@ const productos = [
 
 
 
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id"));
+
+
+const producto = productos.find(p => p.id === id);
 
 
 
+const contenedor = document.getElementById("detalle-producto");
+
+if (producto) {
+  contenedor.innerHTML = `
+    <div id="img-producto">
+          <img src="${producto.imagen}" alt="">
+        </div>        
+        <div id="producto">
+          <h1>${producto.nombre}</h1>
+          <ul>
+            <li>Marca: ${producto.marca}</li>
+            <li>Color: ${producto.color}</li>
+            <li>Talles disponibles: ${producto.talle}</li>
+          </ul>
+          <h2>Descripción:</h2>
+          <p>...</p>
+          <h2>Precio: $${producto.precio}</h2>
+          <button>Comprar</button>
+        </div> 
+    `;
+} else {
+  contenedor.innerHTML = `<p>Producto no encontrado.</p>`;
+}
 
 
-
-
-function publicarTabla(productos){
-    let tabla= document.getElementById("datos-tabla");
   
-    productos.forEach(producto => {
-      producto.talle.forEach(talle => {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-          <td><a href="detalleproducto.html?id=${producto.id}">${producto.nombre}</a></td>
-          <td>${producto.marca}</td>
-          <td>${producto.color}</td>
-          <td>${talle}</td>
-          <td>${producto.stock}</td>
-          <td>$${producto.precio}</td>
-        `;
-        tabla.appendChild(fila);
-      });
-    });
-  
-  
-  } 
-
-  publicarTabla(productos);
