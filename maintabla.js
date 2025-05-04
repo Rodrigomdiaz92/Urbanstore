@@ -65,6 +65,7 @@ function publicarTabla(productos){
       producto.talle.forEach(talle => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
+          <td><a href="/producto.html?id=${producto.id}">${producto.nombre}</a></td>
           <td>${producto.marca}</td>
           <td>${producto.color}</td>
           <td>${talle}</td>

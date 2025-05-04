@@ -10,6 +10,7 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    
 
 }
 
@@ -21,7 +22,7 @@
     --color-secundario: #ffffff;
     --color-terciario: #DCDCDC;
     --color-errror: #ff5449;
-    --color-neutral: #90918c;
+    --color-neutral: #83b916;
     --color-fondo: #f5f5f5;
     --color-texto: #333;
     --color-card: #ffffff;
@@ -286,7 +287,7 @@ footer {
                         border-radius: 5px;
                         font-size: 1.2em;
                         font-weight: bold;
-                        cursor: pointer;
+                        
                         transition: background-color 0.3s ease;
 
                         &:hover {
