@@ -1,3 +1,6 @@
+
+
+
 const productos = [
     {
       id: 1,
@@ -59,7 +62,7 @@ function publicarProductos(productos){
             <button >Agregar al carrito</button>
           </div>
     `;
-    console.log("hola")
+    //console.log("hola")
 
     document.getElementById("card-conteiner-productos").insertAdjacentHTML('beforeend', html);
     
@@ -67,6 +70,10 @@ function publicarProductos(productos){
 
 
 }
+
+
+
+
 
 
 
@@ -81,3 +88,4 @@ function publicarProductos(productos){
   }
 
   publicarProductos(productos);
+  
