@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/detalle/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,16 +23,68 @@
   </head>
   <body>
     <header>
-        <img src="/img/logosmall.png" alt="logo" />
+      <a id="logo" href="/index.html"><img src="/img/LOGOS/black.png" alt=""></a>
       <nav id="nav-bar">
-        <a href="/index.html">Home</a>
         <a href="tienda.html">Tienda</a>
         <a href="stock.html">Stock</a>
         <a href="contacto.html">Contacto</a>
       </nav>
-      <img src="/img/carrito.png" alt="carrito" />
+      <a id="carrito" href="#"><span class="material-symbols-outlined">
+          shopping_cart
+        </span></a>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+      <div id="promociones">
+        <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
+      </div>
+      <div id="detalle-producto">
+        <div id="img-producto">
+          <img src="/img/zapatillas/addidas1.jpg" alt="">
+        </div>        
+        <div id="producto">
+          <h1>Nombre</h1>
+          <ul>
+            <li>Marca: </li>
+            <li>Color:</li>
+            <li>Talles disponibles:</li>
+          </ul>
+          <h2>Descripción:</h2>
+          <p>...</p>
+          <h2>Precio: $</h2>
+          <button>Comprar</button>
+        </div>
+
+      </div>
+      <div id="tiendas-cercanas" >
+      <h2>Tiendas Cercanas</h2>
+      <div id="iframe-tienda">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d52453.260270453786!2d-58.277160344685015!3d-34.74731017115602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMoov!5e0!3m2!1ses!2sar!4v1746386016331!5m2!1ses!2sar" ></iframe>
+      </div>
+    </div>
+      
+      
+    </main>
+    <footer >
+      <div id="footer-data">    
+        <div >
+          <h3>UrbanStore</h3>
+          <p>Tu tienda de calzado deportivo favorita. Calidad, estilo y confort en cada paso.</p>
+        </div>
+        <div id="footer-links">
+          <h4>Seguinos en:</h4>
+          <a href="#" >Instagram</a>
+          <a href="#" >Facebook</a>
+          <a href="#" >WhatsApp</a>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <div id="footer-copiright">
+        <div>          
+        &copy; 2025 Tienda Zapatillas. Todos los derechos reservados.
+      </div>
+      </div>
+    </footer>
+    <script src="/maintabla.js"></script>
   </body>
 </html>
