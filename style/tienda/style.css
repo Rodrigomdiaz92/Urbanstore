@@ -58,11 +58,7 @@
     gap: auto;
 }
 
-#nav-bar{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
 
-}
 
 .productConteiner{
     max-width: 300px;

@@ -1,4 +1,4 @@
-@import url("./style.css");
+@import url("/style/style.css");
 
 
 #datos-tabla{    
@@ -29,4 +29,26 @@ h1{
     text-align: center;
     margin: 20px;
     text-decoration: underline;
+}
+
+
+@media (max-width: 870px) {
+    
+}
+
+
+
+
+/* Estilos para pantallas de hasta 650px de ancho y 600px de alto */
+@media (max-width: 650px) {
+    #datos-tabla{
+        font-size: small;
+        width: 95%;
+        tr{
+        gap: 2px;
+        }
+    
+
+    }
+    
 }
