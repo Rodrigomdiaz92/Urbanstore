@@ -23,6 +23,25 @@
         align-content: center;
         margin: auto;
         gap: 40px;
+        button {
+            justify-content: center;
+            align-items: center;
+            background-color: var(--color-principal);
+            color: var(--color-secundario);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--color-secundario);
+                color: var(--color-principal);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+        }
     }
 
 }
@@ -40,4 +59,27 @@
         }
         
     }
+}
+
+
+@media (max-width: 870px) {
+    #detalle-producto{
+        margin: 40px;
+        display: grid;
+        grid-template-columns:  1fr ;
+        grid-template-rows: auto;
+        #producto{
+        margin-top: 40px;
+        
+        }
+    }
+}
+
+
+
+
+/* Estilos para pantallas de hasta 650px de ancho y 600px de alto */
+@media (max-width: 650px) {
+    
+    
 }
