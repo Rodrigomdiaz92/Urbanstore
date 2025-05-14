@@ -11,7 +11,7 @@ const productos = [
       precio: 45000,
       stock: 12,
       color: "Negro",
-      imagen: "/img/zapatillas/nike1.jpg"
+      imagen: "../img/zapatillas/nike1.jpg"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const productos = [
       precio: 50000,
       stock: 8,
       color: "Blanco",
-      imagen: "/img/zapatillas/addidas1.jpg"
+      imagen: "../img/zapatillas/addidas1.jpg"
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const productos = [
       precio: 12000,
       stock: 20,
       color: "Gris",
-      imagen: "/img/camisetas/nike1.jpg"
+      imagen: "../img/camisetas/nike1.jpg"
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ const productos = [
       precio: 14000,
       stock: 15,
       color: "Negro",
-      imagen: "/img/zapatillas/addidas2.jpg"
+      imagen: "../img/zapatillas/addidas2.jpg"
     }
   ];
 
