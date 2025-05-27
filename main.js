@@ -1,6 +1,101 @@
 
 
 
+const API_TOKEN ='patugb4Wao0DRM7cX.49014db5b029c2ee34bf0d4ead68451c8b80cd78c2cf60684dd6fc3919aec82b';
+const BASE_ID= 'apphx0a6IRoL5RvyA';
+const TABLE_NAME = 'Products';
+const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+
+
+
+console.log("Hola, esta es la base de datos: ");
+
+/*
+async function addProductAirtable() {
+  const nuevoProducto = {
+          id: 1,
+          nombre: "Zapatilla biribiri",
+          categoria: "zapatillas biri",
+          marca: "Nike biri",
+          talle: [39, 40, 41, 42, 43],
+          precio: 50000,
+          stock: 12,
+          color: "Negro",
+          imagen: "../img/zapatillas/nike1biri.jpg"        
+      };
+
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${API_TOKEN}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      fields: {
+          id: 1,
+          nombre: "Zapatilla biribiri",
+          categoria: "zapatillas biri",
+          marca: "Nike biri",
+          talle: [39, 40, 41, 42, 43],
+          precio: 50000,
+          stock: 12,
+          color: "Negro",
+          imagen: "../img/zapatillas/nike1biri.jpg"        
+      }
+    })
+  });
+
+  const data = await response.json();
+  console.log('Producto agregado:', data);
+}*/
+
+const addToAirtable = async() => {
+
+  const nuevoProducto = {
+          id: 1,
+          nombre: "Zapatilla biribiri",
+          categoria: "zapatillas biri",
+          marca: "Nike biri",
+          talle: "39, 40, 41, 42, 43",
+          precio: 50000,
+          stock: "12",
+          color: "Negro",
+          imagen: "../img/zapatillas/nike1biri.jpg"        
+      };
+
+      const productoAirTable ={
+        records: [
+          {
+            fields: nuevoProducto
+          }
+        ]
+        
+      };
+
+  fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${API_TOKEN}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(productoAirTable)
+  }).then(data => console.log("Fue agregado:" + data))
+}
+
+
+const getProductsAirtable = async() => {
+  const response = await fetch(API_URL,{
+    method: 'GET',
+    headers:{
+      'Authorization': `Bearer ${API_TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  console.log('data', data);
+}
+  
+
 const productos = [
     {
       id: 1,
@@ -88,4 +183,6 @@ function publicarProductos(productos){
   }
 
   publicarProductos(productos);
+ addToAirtable();
+getProductsAirtable();
   
