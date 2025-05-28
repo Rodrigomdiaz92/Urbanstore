@@ -79,4 +79,9 @@ function publicarTabla(productos){
   
   } 
 
-  publicarTabla(productos);
+  setTimeout(() => {
+    publicarTabla(productos);
+  }, 1000);
+  
+
+  

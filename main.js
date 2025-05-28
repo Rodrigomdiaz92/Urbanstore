@@ -182,7 +182,12 @@ function publicarProductos(productos){
     //let productosFiltrados= 
   }
 
-  publicarProductos(productos);
- addToAirtable();
+  setTimeout(() => {
+    publicarProductos(productos);
+  }, 1000);
+  
+
+
+ //addToAirtable();
 getProductsAirtable();
   

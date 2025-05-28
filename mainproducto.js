@@ -64,9 +64,9 @@ const id = parseInt(params.get("id"));
 
 const producto = productos.find(p => p.id === id);
 
+function publicarDetalle(){
 
-
-const contenedor = document.getElementById("detalle-producto");
+  const contenedor = document.getElementById("detalle-producto");
 
 if (producto) {
   contenedor.innerHTML = `
@@ -90,5 +90,14 @@ if (producto) {
   contenedor.innerHTML = `<p>Producto no encontrado.</p>`;
 }
 
+
+}
+
+
+
+setTimeout(() => {
+    publicarDetalle();
+  }, 1000);
+  
 
   
