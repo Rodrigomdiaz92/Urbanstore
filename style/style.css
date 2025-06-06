@@ -36,7 +36,7 @@
 header {
     padding: 20px;
     display: grid;
-    grid-template-columns: 0.7fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     max-height: 100px;
     background-color: var(--color-principal);
     color: var(--color-card);
@@ -44,17 +44,19 @@ header {
 
     #logo {
         justify-self: start;
+        align-self: center;
     }
 
-    #carrito {
+    #carritobtn {
         justify-self: end;
-        margin-top: 10px;
+        align-self: center;
+        
     }
 
     #nav-bar {
         justify-self: center;
         text-align: center;
-        margin-top: 10px;
+        align-self: center;
     }
 
 }
@@ -64,7 +66,7 @@ header p {
 }
 
 header a img {
-    width: 30%;
+    width: 25%;
     margin: 0px 10px;
 
 }
@@ -379,6 +381,48 @@ footer {
     }
 
 }
+
+/* Carrito */
+#abrirCarrito {  
+  padding: 10px 16px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  
+}
+
+
+.carrito {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 50%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+
+.carrito.activo {
+  right: 0;
+}
+
+
+.cerrar-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 
 
 
