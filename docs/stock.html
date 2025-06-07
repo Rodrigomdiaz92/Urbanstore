@@ -29,9 +29,7 @@
         <a href="../docs/stock.html">Stock</a>
         <a href="../docs/contacto.html">Contacto</a>
       </nav>
-      <a id="carrito" href="#"><span class="material-symbols-outlined">
-          shopping_cart
-        </span></a>
+      <div id="carritobtn"></div>
     </header>
     <main>
       <div id="promociones">
@@ -47,10 +45,11 @@
           <th>Talle</th>
           <th>Stock</th>
           <th>Precio</th>
+          <th>Editar</th>
         </tr>
         
       </table>
-      <div class="spinner"></div>
+      
     </div>
       
     </main>
@@ -75,6 +74,22 @@
       </div>
       </div>
     </footer>
+    <!-- Modal de edición -->
+<div id="modalEditar" class="modal-editar">
+  <button id="cerrarModal" class="cerrar-btn">✖</button>
+  <h3>Editar producto</h3>
+  <form id="formEditar">
+    <label for="nombreEditar">Nombre:</label>
+    <input type="text" id="nombreEditar" name="nombreEditar">
+    <br>
+    <label for="precioEditar">Precio:</label>
+    <input type="number" id="precioEditar" name="precioEditar">
+    <br>
+    <button>Guardar</button>
+    <button>Eliminar</button>
+  </form>
+</div>
+
     <script src="../maintabla.js"></script>
   </body>
 </html>

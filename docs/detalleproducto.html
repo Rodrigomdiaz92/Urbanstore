@@ -29,9 +29,7 @@
         <a href="../docs/stock.html">Stock</a>
         <a href="../docs/contacto.html">Contacto</a>
       </nav>
-      <a id="carrito" href="#"><span class="material-symbols-outlined">
-          shopping_cart
-        </span></a>
+      <div id="carritobtn"><button id="abrirCarrito">🛒 Ver carrito</button></div>
     </header>
     <main>
       <div id="promociones">
@@ -70,6 +68,17 @@
       </div>
       </div>
     </footer>
+    <div id="carrito" class="carrito">
+  <button id="cerrarCarrito" class="cerrar-btn">✖</button>
+  <h2>🛒 Tu carrito</h2>
+  <div id="carritoItems" class="carrito-items"></div>
+
+  <div class="carrito-total">
+    <p>Total: $<span id="totalCarrito">0</span></p>
+    <a class="btn-comprar" href="../docs/compra.html">COMPRAR</a>
+  </div>
+</div>
     <script src="../mainproducto.js"></script>
+    <script src="../carrito.js"></script>
   </body>
 </html>

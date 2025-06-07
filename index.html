@@ -47,7 +47,7 @@
       <div>
         <p>En Urban Store nos apasiona el deporte y la moda.
           Por eso ofrecemos prendas diseñadas para acompañarte dentro y fuera de la cancha. Nuestra misión es brindarte calidad, estilo y funcionalidad, para que te sientas bien mientras hacés lo que amás.</p>
-        <p id="boton"><button id="boton-tienda">Ir a tienda</button></p> <!-- Agregar link a tienda-->
+        <p id="boton"><a id="boton-tienda" href="./docs/tienda.html">Ir a tienda</a></p> 
         <div id="call-suscripcion">
           
           <h2>¡No te pierdas nuestras ofertas exclusivas!</h2>
@@ -63,26 +63,14 @@
       
 
     </div>
+    <div id="tiendas-cercanas" >
+      <h2>Tiendas Cercanas</h2>
+      <div id="iframe-tienda">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d52453.260270453786!2d-58.277160344685015!3d-34.74731017115602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMoov!5e0!3m2!1ses!2sar!4v1746386016331!5m2!1ses!2sar" ></iframe>
+      </div>
+    </div>
   
-    <div class="productos-sugeridos">
-      <div id="titulo-sugerencia">
-        <h2>Productos Sugeridos:</h2>
-      </div>
-      
-      <div id="sugerencias">
-      <div class="tarjeta-producto">
-        <img src="./img/zapatillas/addidas1.jpg" alt="Zapatillas Urban X">
-        <h3>Zapatillas Urban X</h3>
-        <p>$39.990</p>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="./img/zapatillas/addidas1.jpg" alt="Remera DryFit Pro">
-        <h3>Remera DryFit Pro</h3>
-        <p>$12.990</p>
-      </div>
-    </div>
-      
-    </div>
+    
     
   </main>
   <footer>
@@ -110,7 +98,12 @@
 <div id="carrito" class="carrito">
   <button id="cerrarCarrito" class="cerrar-btn">✖</button>
   <h2>🛒 Tu carrito</h2>
-  <p>Vacío</p>
+  <div id="carritoItems" class="carrito-items"></div>
+
+  <div class="carrito-total">
+    <p>Total: $<span id="totalCarrito">0</span></p>
+    <a class="btn-comprar" href="./docs/compra.html">COMPRAR</a>
+  </div>
 </div>
 
 <script src="main.js"></script>

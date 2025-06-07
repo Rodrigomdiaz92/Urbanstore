@@ -2,19 +2,21 @@
 @import url("/style/tienda/style.css");
 
 
+
+
 #datos-tabla{    
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     background-color: rgba(63, 62, 62, 0.699);
     padding: 25px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     border: 4px solid var(--color-principal);
 
     tr{
         display: grid;
-        grid-template-columns: 1fr 0.4fr 0.3fr 0.2fr 0.7fr 0.5fr;
+        grid-template-columns: 1fr 0.4fr 0.3fr 0.2fr 0.7fr 0.5fr 0.5fr;
         
         td{
             text-align: center;
@@ -52,4 +54,38 @@ h1{
 
     }
     
+}
+
+
+
+.modal-editar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 20%;
+  background-color: #e0e0e0;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modal-editar.activo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-editar .cerrar-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  
 }
