@@ -7,6 +7,8 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 console.log("Hola, esta es la base de datos: ");
 
+let productosAirtable;
+
 
 const getProductsAirtable = async() => {
   const response = await fetch(API_URL,{
@@ -18,6 +20,9 @@ const getProductsAirtable = async() => {
   });
   const data = await response.json();
   console.log('data', data);
+  productosAirtable = data;
+   console.log(productosAirtable);
+   publicarTabla(productosAirtable);
   
 }
 getProductsAirtable();
@@ -27,15 +32,14 @@ getProductsAirtable();
 const addToAirtable = async() => {
 
   const nuevoProducto = {
-          id: 1,
           nombre: "Zapatilla biribiri",
           categoria: "zapatillas biri",
-          marca: "Nike biri",
-          talle: "39, 40, 41, 42, 43",
+          marca: "Nike biri",          
           precio: 50000,
           stock: "12",
           color: "Negro",
-          imagen: "../img/zapatillas/nike1biri.jpg"        
+          imagen: "../img/zapatillas/nike1biri.jpg",
+          descripcion: "hhh",        
       };
 
       const productoAirTable ={
@@ -62,108 +66,78 @@ const addToAirtable = async() => {
 
 
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Zapatilla Nike Air Max",
-    categoria: "zapatillas",
-    marca: "Nike",
-    talle: [39, 40, 41, 42, 43],
-    precio: 45000,
-    stock: 12,
-    color: "Negro",
-    imagen: "/img/zapatillas/nike1.jpg"
-  },
-  {
-    id: 2,
-    nombre: "Zapatilla Adidas Ultraboost",
-    categoria: "zapatillas",
-    marca: "Adidas",
-    talle: [38, 39, 40, 41, 42],
-    precio: 50000,
-    stock: 8,
-    color: "Blanco",
-    imagen: "/img/zapatillas/addidas1.jpg"
-  },
-  {
-    id: 3,
-    nombre: "Remera Nike",
-    categoria: "remeras",
-    marca: "Nike",
-    talle: ["S", "M", "L", "XL"],
-    precio: 12000,
-    stock: 20,
-    color: "Gris",
-    imagen: "/img/camisetas/nike1.jpg"
-  },
-  {
-    id: 4,
-    nombre: "Zapatilla Addidas Sportswear",
-    categoria: "remeras",
-    marca: "Addidas",
-    talle: ["M", "L", "XL"],
-    precio: 14000,
-    stock: 15,
-    color: "Negro",
-    imagen: "/img/zapatillas/addidas2.jpg"
-  }
-];
 
 
 
+function publicarTabla(data) {
+  let tabla = document.getElementById("datos-tabla");
 
+  data.records.forEach(producto => {
+    const p = producto.fields;
+    const id = producto.id;
 
-
-
-
-
-
-
-
-
-
-function publicarTabla(productos){
-    let tabla= document.getElementById("datos-tabla");
-  
-    productos.forEach(producto => {
-      producto.talle.forEach(talle => {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-          <td><a href="detalleproducto.html?id=${producto.id}">${producto.nombre}</a></td>
-          <td>${producto.marca}</td>
-          <td>${producto.color}</td>
-          <td>${talle}</td>
-          <td>${producto.stock}</td>
-          <td>$${producto.precio}</td>
-          <td><button onclick="abrirModalEditar({nombre: 'Zapatilla Nike', precio: 45000})" class="btn-editar">Editar</button></td>
-        `;
-        tabla.appendChild(fila);
-      });
-    });
-  
-  
-  } 
-
-  setTimeout(() => {
-    publicarTabla(productos);
-  }, 1000);
-  
-
-  const modalEditar = document.getElementById("modalEditar");
-const cerrarModalBtn = document.getElementById("cerrarModal");
-
-// Función para abrir el modal
-function abrirModalEditar(producto) {
-  document.getElementById("nombreEditar").value = producto.nombre;
-  document.getElementById("precioEditar").value = producto.precio;
-  modalEditar.classList.add("activo");
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+      <td><a href="detalleproducto.html?id=${id}">${p.nombre}</a></td>
+      <td>${p.marca}</td>
+      <td>${p.color}</td>
+      <td>${p.stock}</td>
+      <td>$${p.precio}</td>
+      <td>
+        <button onclick="abrirModalEditar({ nombre: '${p.nombre}',categoria:'${p.categoria}', marca:'${p.marca}', color:'${p.color}', stock:'${p.stock}', precio: ${p.precio},rutaimg:'${p.imagen}', descripcion:'${p.descripcion}' ,})" class="btn-editar">
+          Editar
+        </button>
+      </td>
+    `;
+    tabla.appendChild(fila);
+  });
 }
 
-// Cerrar el modal
+
+
+
+
+
+
+
+const modalEditar = document.getElementById("modalEditar");
+const cerrarModalBtn = document.getElementById("cerrarModal");
+const eliminarBtn = document.getElementById("btn-eliminar");
+const tituloEditor = document.getElementById("titulo-editor")
+
+
+function abrirModalEditar(producto) {
+  document.getElementById("nombreEditar").value = producto.nombre;
+  document.getElementById("marcaEditar").value = producto.marca;
+  document.getElementById("colorEditar").value = producto.color;
+  document.getElementById("stockEditar").value = producto.stock;
+  document.getElementById("precioEditar").value = producto.precio;
+  document.getElementById("categoriaEditar").value = producto.categoria;
+  document.getElementById("imgEditar").value = producto.rutaimg;
+  document.getElementById("descripcionEditar").value = producto.descripcion;
+  modalEditar.classList.add("activo");
+  eliminarBtn.classList.remove("eliminar");
+  tituloEditor.innerHTML = "Editar producto"
+}
+
+
 cerrarModalBtn.addEventListener("click", () => {
   modalEditar.classList.remove("activo");
 });
 
+function abrirModalAgregarProducto() {
+  document.getElementById("nombreEditar").value = " ";
+  document.getElementById("marcaEditar").value = " ";
+  document.getElementById("colorEditar").value = " ";
+  document.getElementById("stockEditar").value = " ";
+  document.getElementById("precioEditar").value = " ";
+  document.getElementById("categoriaEditar").value = " ";
+  document.getElementById("imgEditar").value = " ";
+  document.getElementById("descripcionEditar").value = " ";
+  eliminarBtn.classList.add("eliminar");  
+  modalEditar.classList.add("activo");
+  tituloEditor.innerHTML = "Agregar Producto"
+}
 
 
 

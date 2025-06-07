@@ -35,14 +35,16 @@
       <div id="promociones">
         <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
       </div>
-      <h1>Tabla Stock</h1>
-    <div id="tabla-stock">      
+      <div id="titulo-stock">
+        <h1>Tabla Stock</h1>
+      <div><button onclick="abrirModalAgregarProducto()">Agregar producto</button></div></div>   
+      
+    <div id="tabla-stock">         
       <table id="datos-tabla">
         <tr>
           <th>Nombre</th>
           <th>Marca</th>
-          <th>Color</th>
-          <th>Talle</th>
+          <th>Color</th>          
           <th>Stock</th>
           <th>Precio</th>
           <th>Editar</th>
@@ -77,16 +79,35 @@
     <!-- Modal de edición -->
 <div id="modalEditar" class="modal-editar">
   <button id="cerrarModal" class="cerrar-btn">✖</button>
-  <h3>Editar producto</h3>
+  <h3 id="titulo-editor"></h3>
   <form id="formEditar">
     <label for="nombreEditar">Nombre:</label>
     <input type="text" id="nombreEditar" name="nombreEditar">
     <br>
+    <label for="nombreEditar">Categoria:</label>
+    <input type="text" id="categoriaEditar" name="categoriaEditar">
+    <br>
+    <label for="nombreEditar">Marca:</label>
+    <input type="text" id="marcaEditar" name="marcaEditar">
+    <br>
     <label for="precioEditar">Precio:</label>
     <input type="number" id="precioEditar" name="precioEditar">
     <br>
+    <label for="nombreEditar">Stock:</label>
+    <input type="text" id="stockEditar" name="stockEditar">
+    <br>
+    <label for="nombreEditar">Color:</label>
+    <input type="text" id="colorEditar" name="colorEditar">
+    <br>
+    <label for="nombreEditar">Ruta img:</label>
+    <input type="text" id="imgEditar" name="imgEditar">
+    <br>
+    <label for="nombreEditar">Descripción:</label>
+    <input type="text" id="descripcionEditar" name="descripcionEditar">
+    <br>
+
     <button>Guardar</button>
-    <button>Eliminar</button>
+    <button id="btn-eliminar">Eliminar</button>
   </form>
 </div>
 

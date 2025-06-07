@@ -66,10 +66,11 @@ function publicarProductos(data) {
 
   data.records.forEach(producto => {
     const p = producto.fields;
+    const recordId = producto.id;
 
     const html = `
       <div id="${p.nombre}" class="productConteiner">
-        <a href="detalleproducto.html?id=${p.id}">
+        <a href="detalleproducto.html?id=${recordId}">
           <img src="${p.imagen}" alt="${p.nombre}" />
         </a>
         <h3>${p.nombre}</h3>

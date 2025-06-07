@@ -2,7 +2,21 @@
 @import url("/style/tienda/style.css");
 
 
-
+#titulo-stock{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: auto;
+    h1{    
+    margin: 20px;
+    text-decoration: underline;
+    align-self: center;
+    }
+    div{
+        justify-self: end;
+        align-self: center;
+    }
+}
 
 #datos-tabla{    
     display: grid;
@@ -16,7 +30,7 @@
 
     tr{
         display: grid;
-        grid-template-columns: 1fr 0.4fr 0.3fr 0.2fr 0.7fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr 0.4fr 0.2fr 0.7fr 0.5fr 0.5fr;
         
         td{
             text-align: center;
@@ -28,11 +42,11 @@
     }
 }
 
-h1{
-    text-align: center;
-    margin: 20px;
-    text-decoration: underline;
+.eliminar{
+    display: none;
 }
+
+
 
 
 @media (max-width: 870px) {
