@@ -30,7 +30,7 @@
 
     tr{
         display: grid;
-        grid-template-columns: 1fr 0.4fr 0.2fr 0.7fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr 0.4fr 0.2fr 0.7fr 0.5fr 0.5fr 0.5fr;
         
         td{
             text-align: center;

@@ -41,14 +41,7 @@
       
     <div id="tabla-stock">         
       <table id="datos-tabla">
-        <tr>
-          <th>Nombre</th>
-          <th>Marca</th>
-          <th>Color</th>          
-          <th>Stock</th>
-          <th>Precio</th>
-          <th>Editar</th>
-        </tr>
+        
         
       </table>
       
@@ -94,7 +87,7 @@
     <input type="number" id="precioEditar" name="precioEditar">
     <br>
     <label for="nombreEditar">Stock:</label>
-    <input type="text" id="stockEditar" name="stockEditar">
+    <input type="number" id="stockEditar" name="stockEditar">
     <br>
     <label for="nombreEditar">Color:</label>
     <input type="text" id="colorEditar" name="colorEditar">
@@ -104,13 +97,16 @@
     <br>
     <label for="nombreEditar">Descripción:</label>
     <input type="text" id="descripcionEditar" name="descripcionEditar">
-    <br>
-
-    <button>Guardar</button>
-    <button id="btn-eliminar">Eliminar</button>
+    <br>    
   </form>
+    <button id="btn-agregar" onclick="agregarProducto()">Agregar</button>
+    <button id="btn-editar" onclick="actualizarProducto(idSeleccionado)">Guardar</button>
+    
+
 </div>
 
     <script src="../maintabla.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>
