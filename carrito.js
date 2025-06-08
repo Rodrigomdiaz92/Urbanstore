@@ -25,6 +25,18 @@ let carritoActivo=[
   },
   ];
 
+  let carritoPrueba =[];
+
+
+
+function agregarACarrito(recordId){
+  const producto = localProductos.records.find(p => p.id === recordId);
+  carritoPrueba.push(producto)
+  console.log(carritoPrueba)
+
+
+}
+
 
   function renderCarrito(carrito) {
   const contenedor = document.getElementById("carritoItems");
