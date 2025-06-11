@@ -48,9 +48,9 @@ function publicarDetalleProducto(data) {
           
         </ul>
         <h2>Descripción:</h2>
-        <p>...</p>
+        <p>${p.descripcion}</p>
         <h2>Precio: $${p.precio}</h2>
-        <button onclick="agregarACarrito('${producto.id}')">Comprar</button>
+        <button onclick="agregarACarrito('${producto.id}')">Agregar al Carrito</button>
       </div> 
     `;
   } else {
