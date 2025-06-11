@@ -28,6 +28,7 @@ const getProductsAirtable = async() => {
   localProductos = data;
   console.log(localProductos);
   publicarProductos(localProductos);
+  renderCarrito();
   
 }
   
@@ -48,7 +49,7 @@ function publicarProductos(data) {
         <h3>${p.nombre}</h3>
         <h6>ENVÍO GRATIS</h6>
         <h5>$${p.precio}</h5>
-        <button onclick="agregarACarrito('${recordId}')">Agregar al carrito</button>
+        <button id="agregarProducto" onclick="agregarACarrito('${recordId}')">Agregar al carrito</button>
       </div>
     `;
 

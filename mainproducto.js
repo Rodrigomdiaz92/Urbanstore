@@ -6,7 +6,7 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 
 console.log("Hola, esta es la base de datos: ");
-
+let localProductos=[];
 
 const getProductsAirtable = async() => {
   const response = await fetch(API_URL,{
@@ -18,6 +18,7 @@ const getProductsAirtable = async() => {
   });
   const data = await response.json();
   console.log('data', data);
+  localProductos = data;
    publicarDetalleProducto(data)
   
 }
@@ -28,6 +29,7 @@ const recordId = params.get("id");
 
 
 function publicarDetalleProducto(data) {
+  renderCarrito();
   const producto = data.records.find(p => p.id === recordId);
   const contenedor = document.getElementById("detalle-producto");
 
@@ -48,7 +50,7 @@ function publicarDetalleProducto(data) {
         <h2>Descripción:</h2>
         <p>...</p>
         <h2>Precio: $${p.precio}</h2>
-        <button>Comprar</button>
+        <button onclick="agregarACarrito('${producto.id}')">Comprar</button>
       </div> 
     `;
   } else {

@@ -1,29 +1,6 @@
 
   
-let carritoActivo=[
-    {
-    id: 1,
-    nombre: "Zapatilla Nike Air Max",
-    categoria: "zapatillas",
-    marca: "Nike",
-    talle: [39, 40, 41, 42, 43],
-    precio: 45000,
-    stock: 12,
-    color: "Negro",
-    imagen: "../img/zapatillas/nike1.jpg"
-  },
-  {
-    id: 2,
-    nombre: "Zapatilla Adidas Ultraboost",
-    categoria: "zapatillas",
-    marca: "Adidas",
-    talle: [38, 39, 40, 41, 42],
-    precio: 50000,
-    stock: 8,
-    color: "Blanco",
-    imagen: "../img/zapatillas/addidas1.jpg"
-  },
-  ];
+
 
   let carritoPrueba =[];
 
@@ -33,29 +10,54 @@ function agregarACarrito(recordId){
   const producto = localProductos.records.find(p => p.id === recordId);
   carritoPrueba.push(producto)
   console.log(carritoPrueba)
+  agregarAlCarritoLocal(producto);
+  renderCarrito()
+}
 
+function agregarAlCarritoLocal(producto) {
+  let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];  
+  carritoLocal.push(producto);  
+  localStorage.setItem('carrito', JSON.stringify(carritoLocal));
+}
 
+function vaciarCarrito() {
+  localStorage.removeItem('carrito');
+  renderCarrito();
+}
+
+function obtenerCarrito() {
+  return JSON.parse(localStorage.getItem('carrito')) || [];
 }
 
 
-  function renderCarrito(carrito) {
+
+
+
+  function renderCarrito() {
+
+  let carrito ={records: obtenerCarrito()}
+  console.log(carrito)
   const contenedor = document.getElementById("carritoItems");
   const totalTexto = document.getElementById("totalCarrito");
   contenedor.innerHTML = "";
 
   let total = 0;
 
-  carrito.forEach(producto => {
-    total += producto.precio;
+  carrito.records.forEach(producto => {
+    const p = producto.fields;
+    const recordId = producto.id;
+    total += p.precio;
 
     const item = document.createElement("div");
     item.classList.add("item-carrito");
 
     item.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <a href="detalleproducto.html?id=${recordId}">
+        <img src="${p.imagen}" alt="${p.nombre}">
+      </a>
       <div>
-        <h4>${producto.nombre}</h4>
-        <p>$${producto.precio}</p>
+        <h4>${p.nombre}</h4>
+        <p>$${p.precio}</p>
       </div>
     `;
 
@@ -66,14 +68,22 @@ function agregarACarrito(recordId){
 }
 
 const abrirBtn = document.getElementById("abrirCarrito");
-  const cerrarBtn = document.getElementById("cerrarCarrito");
-  const carrito = document.getElementById("carrito");
+const cerrarBtn = document.getElementById("cerrarCarrito");
+const carrito = document.getElementById("carrito");
+const agregarProducto = document.getElementsByClassName("agregarProducto")
 
-  abrirBtn.addEventListener("click", () => {
-    carrito.classList.add("activo");
-    renderCarrito(carritoActivo);
-  });
+abrirBtn.addEventListener("click", () => {
+  carrito.classList.add("activo");
+  renderCarrito();
+  //vaciarCarrito();
+});
 
-  cerrarBtn.addEventListener("click", () => {
-    carrito.classList.remove("activo");
-  });
+cerrarBtn.addEventListener("click", () => {
+  carrito.classList.remove("activo");
+});
+
+agregarProducto.addEventListener("click", () => {
+  carrito.classList.add("activo");
+  renderCarrito(carritoActivo);
+  
+});
