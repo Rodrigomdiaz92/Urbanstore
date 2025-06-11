@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/stock/style.css">
+    <link rel="stylesheet" href="../style/stock/styleadmin.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,7 @@
       </div>
       <div id="titulo-stock">
         <h1>Tabla Stock</h1>
-      <div><a href="../docs/stockadmin.html">ADMIN</a></div></div>   
+      <div><button onclick="abrirModalAgregarProducto()">Agregar producto</button></div></div>   
       
     <div id="tabla-stock">         
       <table id="datos-tabla">
@@ -69,9 +69,43 @@
       </div>
       </div>
     </footer>
+    <!-- Modal de edición -->
+<div id="modalEditar" class="modal-editar">
+  <button id="cerrarModal" class="cerrar-btn">✖</button>
+  <h3 id="titulo-editor"></h3>
+  <form id="formEditar">
+    <label for="nombreEditar">Nombre:</label>
+    <input type="text" id="nombreEditar" name="nombreEditar">
+    <br>
+    <label for="nombreEditar">Categoria:</label>
+    <input type="text" id="categoriaEditar" name="categoriaEditar">
+    <br>
+    <label for="nombreEditar">Marca:</label>
+    <input type="text" id="marcaEditar" name="marcaEditar">
+    <br>
+    <label for="precioEditar">Precio:</label>
+    <input type="number" id="precioEditar" name="precioEditar">
+    <br>
+    <label for="nombreEditar">Stock:</label>
+    <input type="number" id="stockEditar" name="stockEditar">
+    <br>
+    <label for="nombreEditar">Color:</label>
+    <input type="text" id="colorEditar" name="colorEditar">
+    <br>
+    <label for="nombreEditar">Ruta img:</label>
+    <input type="text" id="imgEditar" name="imgEditar">
+    <br>
+    <label for="nombreEditar">Descripción:</label>
+    <input type="text" id="descripcionEditar" name="descripcionEditar">
+    <br>    
+  </form>
+    <button id="btn-agregar" onclick="agregarProducto()">Agregar</button>
+    <button id="btn-editar" onclick="actualizarProducto(idSeleccionado)">Guardar</button>
+    
 
+</div>
 
-    <script src="../maintabla.js"></script>
+    <script src="../maintablaadmin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </body>

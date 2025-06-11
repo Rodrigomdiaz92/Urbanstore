@@ -12,38 +12,7 @@ console.log("Hola, esta es la base de datos: ");
 
 let localProductos=[];
 
-const addToAirtable = async() => {
 
-  const nuevoProducto = {
-          id: 1,
-          nombre: "Zapatilla biribiri",
-          categoria: "zapatillas biri",
-          marca: "Nike biri",
-          talle: "39, 40, 41, 42, 43",
-          precio: 50000,
-          stock: "12",
-          color: "Negro",
-          imagen: "../img/zapatillas/nike1biri.jpg"        
-      };
-
-      const productoAirTable ={
-        records: [
-          {
-            fields: nuevoProducto
-          }
-        ]
-        
-      };
-
-  fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${API_TOKEN}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(productoAirTable)
-  }).then(data => console.log("Fue agregado:" + data))
-}
 
 
 const getProductsAirtable = async() => {
@@ -56,8 +25,10 @@ const getProductsAirtable = async() => {
   });
   const data = await response.json();
   console.log('data', data);
-  publicarProductos(data);
   localProductos = data;
+  console.log(localProductos);
+  publicarProductos(localProductos);
+  
 }
   
 
@@ -82,29 +53,48 @@ function publicarProductos(data) {
     `;
 
     contenedor.insertAdjacentHTML('beforeend', html);
+     
   });
+
+}
+
+// eventos filtros
+const selectCategorias = document.getElementById("filtro-categoria");
+const selectMarcas = document.getElementById("filtro-marca");
+
+
+selectCategorias.addEventListener("change", function () {
+  const categoriaSeleccionada = selectCategorias.value; 
+  const productosFiltrados ={
+                              records: filtrarPorCategoria(categoriaSeleccionada, localProductos.records)
+                            }; 
+  //console.log(productosFiltrados);
+  publicarProductos(productosFiltrados);
+});
+
+selectMarcas.addEventListener("change", function () {
+  const marcaSeleccionada = selectMarcas.value; 
+  filtrarPorMarca(marcaSeleccionada, localProductos.records);
+  const productosFiltrados ={
+                              records: filtrarPorMarca(marcaSeleccionada, localProductos.records)
+                            };
+  //console.log(productosFiltrados);
+  publicarProductos(productosFiltrados);
+});
+
+
+
+function filtrarPorCategoria(nombreCategoria, productos) {
+  return productos.filter(producto => producto.fields.categoria.toLowerCase() === nombreCategoria.toLowerCase());
+}
+
+function filtrarPorMarca(nombreMarca, productos) {
+  return productos.filter(producto => producto.fields.marca.toLowerCase() === nombreMarca.toLowerCase());
 }
 
 
 
 
 
-
-
-
-
-
-  function filtrar(){
-    let categoria= document.getElementById("").value;
-    let color=document.getElementById("").value;
-
-    //let productosFiltrados= 
-  }
-
- 
-  
-
-
- //addToAirtable();
 getProductsAirtable();
   
