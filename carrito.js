@@ -6,13 +6,23 @@
 
 
 
-function agregarACarrito(recordId){
+function agregarACarrito(recordId) {
   const producto = localProductos.records.find(p => p.id === recordId);
-  carritoPrueba.push(producto)
-  console.log(carritoPrueba)
-  agregarAlCarritoLocal(producto);
-  renderCarrito()
+  
+  let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];
+  const indexProducto = carritoLocal.findIndex(p => p.id === recordId);
+
+  if (indexProducto !== -1) {
+    carritoLocal[indexProducto].cantidad += 1;
+  } else {
+    producto.cantidad = 1;
+    carritoLocal.push(producto);
+  }
+
+  localStorage.setItem('carrito', JSON.stringify(carritoLocal));
+  renderCarrito();
 }
+
 
 function agregarAlCarritoLocal(producto) {
   let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];  
@@ -28,15 +38,48 @@ function vaciarCarrito() {
 function obtenerCarrito() {
   return JSON.parse(localStorage.getItem('carrito')) || [];
 }
+function eliminarDelCarrito(recordId) {
+  let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];
+  carritoLocal = carritoLocal.filter(producto => producto.id !== recordId);
+  localStorage.setItem('carrito', JSON.stringify(carritoLocal));
+  renderCarrito();
+}
+
+function aumentarCantidad(recordId) {
+  let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];
+  const indexProducto = carritoLocal.findIndex(p => p.id === recordId);
+
+  if (indexProducto !== -1) {
+    carritoLocal[indexProducto].cantidad += 1;
+    localStorage.setItem('carrito', JSON.stringify(carritoLocal));
+    renderCarrito();
+  }
+}
+
+function disminuirCantidad(recordId) {
+  let carritoLocal = JSON.parse(localStorage.getItem('carrito')) || [];
+  const indexProducto = carritoLocal.findIndex(p => p.id === recordId);
+
+  if (indexProducto !== -1) {
+    if (carritoLocal[indexProducto].cantidad > 1) {
+      carritoLocal[indexProducto].cantidad -= 1;
+    } else {
+      carritoLocal.splice(indexProducto, 1);
+    }
+
+    localStorage.setItem('carrito', JSON.stringify(carritoLocal));
+    renderCarrito();
+  }
+}
 
 
 
 
 
-  function renderCarrito() {
+function renderCarrito() {
+  let carrito = { records: obtenerCarrito() };
+  console.log(carrito);
 
-  let carrito ={records: obtenerCarrito()}
-  console.log(carrito)
   const contenedor = document.getElementById("carritoItems");
   const totalTexto = document.getElementById("totalCarrito");
   contenedor.innerHTML = "";
@@ -46,7 +89,8 @@ function obtenerCarrito() {
   carrito.records.forEach(producto => {
     const p = producto.fields;
     const recordId = producto.id;
-    total += p.precio;
+    const cantidad = producto.cantidad || 1;
+    total += p.precio * cantidad;
 
     const item = document.createElement("div");
     item.classList.add("item-carrito");
@@ -57,7 +101,14 @@ function obtenerCarrito() {
       </a>
       <div>
         <h4>${p.nombre}</h4>
-        <p>$${p.precio}</p>
+        <p>Precio: $${p.precio}</p>
+        <div>
+          <button onclick="disminuirCantidad('${recordId}')">-</button>
+          <span>Cantidad: ${cantidad}</span>
+          <button onclick="aumentarCantidad('${recordId}')">+</button>
+        </div>
+        <p>Subtotal: $${p.precio * cantidad}</p>
+        <button onclick="eliminarDelCarrito('${recordId}')">Quitar</button>
       </div>
     `;
 
@@ -66,6 +117,9 @@ function obtenerCarrito() {
 
   totalTexto.textContent = total;
 }
+
+
+
 
 const abrirBtn = document.getElementById("abrirCarrito");
 const cerrarBtn = document.getElementById("cerrarCarrito");

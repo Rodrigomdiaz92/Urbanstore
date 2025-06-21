@@ -34,13 +34,43 @@
     <div id="promociones">
       <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
     </div>
-    <h2>🛒 Tu carrito</h2>
-    <button class="btn-comprar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <h2>🛒 Completa tu Compra</h2>
+    
   <div id="carritoItems" class="carrito-items"></div>
 
   <div class="carrito-total">
     <p>Total: $<span id="totalCarrito">0</span></p>
-    <button class="btn-comprar">COMPRAR</button>
+    <div id="formulario-compra">
+      <h3>Facturación:</h3>
+      <p>Nombre y Apellido:</p>
+      <input type="text" id="nombre-apellido" placeholder="Nombre y Apellido" required>
+      <br>
+      <p>Correo Electrónico:</p>
+      <input type="email" id="correo-electronico" placeholder="Correo Electrónico" required>
+      <br>
+      <p>Teléfono:</p>
+      <input type="tel" id="telefono" placeholder="Teléfono" >
+      <br>
+      <p>Dirección de entrega:</p>
+      <input type="text" id="calle-entrega" placeholder="Calle" required>
+      <br>
+      <input type="number" id="altura-entrega" placeholder="Altura" required>
+      <br>
+      <input type="text" id="localidad-entrega" placeholder="Localidad" required>
+      <br>
+      <input type="number" id="codigop-entrega" placeholder="Código Postal" required>
+      <br>     
+      
+      <p>Medio de Pago:</p>
+      <select id="medioPago" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="Transferencia">Transferencia bancaria</option>
+        <option value="Tarjeta">Tarjeta de crédito/débito</option>
+        <option value="Efectivo">Efectivo al retirar</option>
+      </select>
+      <br>
+      <button class="btn-comprar" onclick="confirmarCompra()">Confirmar Compra</button>
+    </div>
     
     
   </main>
@@ -65,9 +95,10 @@
       </div>
     </div>
   </footer>
-  <!--<script src="../main.js"></script> -->
-<script src="../compra.js"></script>
-</body>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../compra.js"></script>
+  </body>
 
 
 

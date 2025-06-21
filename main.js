@@ -64,36 +64,33 @@ const selectCategorias = document.getElementById("filtro-categoria");
 const selectMarcas = document.getElementById("filtro-marca");
 
 
-selectCategorias.addEventListener("change", function () {
-  const categoriaSeleccionada = selectCategorias.value; 
-  const productosFiltrados ={
-                              records: filtrarPorCategoria(categoriaSeleccionada, localProductos.records)
-                            }; 
-  //console.log(productosFiltrados);
-  publicarProductos(productosFiltrados);
-});
-
-selectMarcas.addEventListener("change", function () {
-  const marcaSeleccionada = selectMarcas.value; 
-  filtrarPorMarca(marcaSeleccionada, localProductos.records);
-  const productosFiltrados ={
-                              records: filtrarPorMarca(marcaSeleccionada, localProductos.records)
-                            };
-  //console.log(productosFiltrados);
-  publicarProductos(productosFiltrados);
-});
 
 
+selectCategorias.addEventListener("change", aplicarFiltros);
+selectMarcas.addEventListener("change", aplicarFiltros);
 
-function filtrarPorCategoria(nombreCategoria, productos) {
-  return productos.filter(producto => producto.fields.categoria.toLowerCase() === nombreCategoria.toLowerCase());
+function aplicarFiltros() {
+  const categoriaSeleccionada = selectCategorias.value;
+  const marcaSeleccionada = selectMarcas.value;
+
+  let productosFiltrados = localProductos.records;
+
+  
+  if (categoriaSeleccionada !== "Todos") {
+    productosFiltrados = productosFiltrados.filter(producto => 
+      producto.fields.categoria.toLowerCase() === categoriaSeleccionada.toLowerCase()
+    );
+  }
+
+  
+  if (marcaSeleccionada !== "Todos") {
+    productosFiltrados = productosFiltrados.filter(producto => 
+      producto.fields.marca.toLowerCase() === marcaSeleccionada.toLowerCase()
+    );
+  }
+
+  publicarProductos({ records: productosFiltrados });
 }
-
-function filtrarPorMarca(nombreMarca, productos) {
-  return productos.filter(producto => producto.fields.marca.toLowerCase() === nombreMarca.toLowerCase());
-}
-
-
 
 
 
