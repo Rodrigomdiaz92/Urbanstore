@@ -135,9 +135,9 @@ abrirBtn.addEventListener("click", () => {
 cerrarBtn.addEventListener("click", () => {
   carrito.classList.remove("activo");
 });
-
+/*
 agregarProducto.addEventListener("click", () => {
   carrito.classList.add("activo");
   renderCarrito(carritoActivo);
   
-});
+});*/

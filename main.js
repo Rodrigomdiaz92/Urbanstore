@@ -89,7 +89,15 @@ function aplicarFiltros() {
     );
   }
 
-  publicarProductos({ records: productosFiltrados });
+  if (productosFiltrados.length === 0) {
+    const contenedor = document.getElementById("card-conteiner-productos");
+    contenedor.innerHTML = `<p>No se encontraron productos con los filtros seleccionados.</p>`;
+
+  } else {
+    publicarProductos({ records: productosFiltrados });
+  }
+
+  
 }
 
 
