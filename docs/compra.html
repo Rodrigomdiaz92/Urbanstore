@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/style.css">  
+    <link rel="stylesheet" href="../style/compra/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,35 +45,58 @@
 
   <div class="carrito-total">
     <p>Total: $<span id="totalCarrito">0</span></p>
+    
+    
     <div id="formulario-compra">
-      <h3>Facturación:</h3>
-      <p>Nombre y Apellido:</p>
-      <input type="text" id="nombre-apellido" placeholder="Nombre y Apellido" required>
-      <br>
-      <p>Correo Electrónico:</p>
-      <input type="email" id="correo-electronico" placeholder="Correo Electrónico" required>
-      <br>
-      <p>Teléfono:</p>
-      <input type="tel" id="telefono" placeholder="Teléfono" >
-      <br>
-      <p>Dirección de entrega:</p>
-      <input type="text" id="calle-entrega" placeholder="Calle" required>
-      <br>
-      <input type="number" id="altura-entrega" placeholder="Altura" required>
-      <br>
-      <input type="text" id="localidad-entrega" placeholder="Localidad" required>
-      <br>
-      <input type="number" id="codigop-entrega" placeholder="Código Postal" required>
-      <br>     
+        <h3>Facturación:</h3>
+        <div id="datos-facturacion">
+          <p>Nombre y Apellido:</p>
+        <input type="text" id="nombre-apellido" placeholder="Nombre y Apellido" required>
+        
+        <p>Correo Electrónico:</p>
+        <input type="email" id="correo-electronico" placeholder="Correo Electrónico" required>
+        
+        <p>Teléfono:</p>
+        <input type="tel" id="telefono" placeholder="Teléfono" >
+        
+        <p>Medio de Pago:</p>
+        <select id="medioPago" required>
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option value="Transferencia">Transferencia bancaria</option>
+          <option value="Tarjeta">Tarjeta de crédito/débito</option>
+          <option value="Efectivo">Efectivo al retirar</option>
+        </select>
+      </div>
+      <h3>Dirección de entrega:</h3>
+      <div id="datos-entrega">
+        
+        <div>
+          <p>Calle</p>
+          <input type="text" id="calle-entrega" placeholder="Calle" required>
+        </div>
+        <div>
+          <p>Altura:</p>
+          <input type="number" id="altura-entrega" placeholder="Altura" required>
+        </div>
+        <div>
+          <p>Localidad:</p>
+          <input type="text" id="localidad-entrega" placeholder="Localidad" required>
+        </div>
+        <div>
+          <p>Codigo Postal:</p>
+          <input type="number" id="codigop-entrega" placeholder="Código Postal" required>
+        </div>
       
-      <p>Medio de Pago:</p>
-      <select id="medioPago" required>
-        <option value="" disabled selected>Seleccione una opción</option>
-        <option value="Transferencia">Transferencia bancaria</option>
-        <option value="Tarjeta">Tarjeta de crédito/débito</option>
-        <option value="Efectivo">Efectivo al retirar</option>
-      </select>
-      <br>
+      
+      
+      
+      
+      
+      
+               
+      </div>
+      
+      
       <button class="btn-comprar" onclick="confirmarCompra()">Confirmar Compra</button>
     </div>
     

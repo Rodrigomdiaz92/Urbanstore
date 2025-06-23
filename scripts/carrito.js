@@ -108,7 +108,7 @@ function renderCarrito() {
           <button onclick="aumentarCantidad('${recordId}')">+</button>
         </div>
         <p>Subtotal: $${p.precio * cantidad}</p>
-        <button onclick="eliminarDelCarrito('${recordId}')">Quitar</button>
+        <button onclick="eliminarDelCarrito('${recordId}')">🗑️</button>
       </div>
     `;
 

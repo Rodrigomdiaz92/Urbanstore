@@ -1,0 +1,65 @@
+#formulario-compra{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 25px;
+    margin: 20px;    
+    font-size: 1rem;
+    gap: 20px;
+    h3{
+        text-decoration: underline;
+        
+    }
+
+    #datos-facturacion{
+        display: grid;
+        grid-template-columns: 1fr ;
+        input{
+            width: 100%;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        select{
+            width: 100%;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+    }
+    #datos-entrega{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        input{
+            width: 100%;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+
+    }
+    
+}
+
+
+@media (max-width: 870px) {
+
+    #datos-entrega{  
+        display: grid;      
+        grid-template-columns: 1fr;
+    }
+}
