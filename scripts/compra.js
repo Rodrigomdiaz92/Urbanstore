@@ -24,8 +24,10 @@ function renderCarrito() {
   
   const contenedor = document.getElementById("carritoItems");
   const totalTexto = document.getElementById("totalCarrito");
+  const facturacion = document.getElementById("formulario-compra");
   if(carrito.records.length == 0){
     contenedor.innerHTML  = `<h4>Sin productos</h4>`;
+    facturacion.innerHTML = " "
 
   }else{
   contenedor.innerHTML = "";
