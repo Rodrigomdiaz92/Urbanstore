@@ -1,5 +1,5 @@
 @import url("./style.css");
-@import url("/style/tienda/style.css");
+
 
 
 
@@ -17,7 +17,7 @@
         }
     }
     #producto{
-        width: 400px;
+        
         display: grid;
         grid-template-columns: 1fr;
         align-content: center;
@@ -66,7 +66,8 @@
 
 @media (max-width: 870px) {
     #detalle-producto{
-        margin: 40px;
+        margin: 10px;
+        padding: 40px;
         display: grid;
         grid-template-columns:  1fr ;
         grid-template-rows: auto;

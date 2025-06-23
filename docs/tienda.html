@@ -21,13 +21,17 @@
   </head>
   <body>
     <header>
-      <a id="logo" href="../index.html"><img src="../img/LOGOS/black.png" alt=""></a>
-      <nav id="nav-bar">
+      <div id="menu-toggle" class="menu-toggle">☰</div>
+      <a id="logo" href="../index.html"
+        ><img src="../img/LOGOS/black.png" alt="UrbanStore"
+      /></a>
+      <nav id="nav-bar" class="menu-hidden">
+        <button id="cerrar-menu" class="cerrar-menu">✖</button>
         <a href="../docs/tienda.html">Tienda</a>
         <a href="../docs/stock.html">Stock</a>
         <a href="../docs/contacto.html">Contacto</a>
       </nav>
-      <div id="carritobtn"><button id="abrirCarrito">🛒 Ver carrito</button></div>
+      <div id="carritobtn"><button id="abrirCarrito">🛒 Carrito</button></div>
     </header>
     <main>
       <div id="promociones">
@@ -84,17 +88,26 @@
     </footer>
     <!--Carrito -->
 <div id="carrito" class="carrito">
-  <button id="cerrarCarrito" class="cerrar-btn">✖</button>
-  <h2>🛒 Tu carrito</h2>
-  <div id="carritoItems" class="carrito-items"></div>
+      <button id="cerrarCarrito" class="cerrar-btn">✖</button>
+      <h2>🛒 Tu carrito</h2>
+      <button class="btn-vaciar" onclick="vaciarCarrito()">
+          Vaciar Carrito
+        </button>
+      <div id="carritoItems" class="carrito-items"></div>
 
-  <div class="carrito-total">
-    <p>Total: $<span id="totalCarrito">0</span></p>
-    <a class="btn-comprar" href="../docs/compra.html">COMPRAR</a>
-    <button class="btn-comprar" onclick="vaciarCarrito()">Vaciar Carrito</button>
-  </div>
-</div>
+      <div class="carrito-total">
+        <p>Total: $<span id="totalCarrito">0</span></p>
+        <br>
+        
+        <a class="btn-comprar" href="../docs/compra.html">COMPRAR</a>
+        <br>
+        <br>
+        
+        
+      </div>
+    </div>
     <script src="../scripts/main.js"></script>
+    <script src="../scripts/mainheader.js"></script>
     <script src="../scripts/carrito.js"></script>
   </body>
 </html>

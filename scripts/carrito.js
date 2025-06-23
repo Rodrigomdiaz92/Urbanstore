@@ -96,7 +96,7 @@ function renderCarrito() {
     item.classList.add("item-carrito");
 
     item.innerHTML = `
-      <a href="detalleproducto.html?id=${recordId}">
+      <a href="../docs/detalleproducto.html?id=${recordId}">
         <img src="${p.imagen}" alt="${p.nombre}">
       </a>
       <div>

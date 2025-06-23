@@ -2,7 +2,7 @@
 
 #tienda{
     display: grid;
-    grid-template-columns: 0.1fr 3fr;
+    grid-template-columns: 1fr;
     div{
         /*border: #333 solid 2px;*/
         margin: 5px 10px 5px 10px;
@@ -16,8 +16,8 @@
 
 #seleccion-filtros{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 20px 20px 20px 30px;
+    grid-template-columns: 0.3fr 0.5fr 0.5fr 0.3fr 1fr;
+    
     gap: 5px; 
     margin: 2rem auto;
     span {
@@ -107,6 +107,15 @@
 /* Estilos para pantallas de hasta 850px de ancho y 600px de alto */
 @media (max-width: 870px)  {
 
+    #tienda{
+    display: grid;
+    grid-template-columns: 1fr;
+    }
+    
+#seleccion-filtros{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr ;
+}
     #card-conteiner-productos{
         display: grid;
         grid-template-columns: 1fr 1fr;

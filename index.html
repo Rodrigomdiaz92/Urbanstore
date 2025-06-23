@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
@@ -15,102 +14,115 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
-    
-  <title>UrbanStore</title>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart"
+    />
 
-<body>
-  <header>
-    <a id="logo" href="#"><img src="./img/LOGOS/black.png" alt=""></a>
-    <nav id="nav-bar">
-      <a href="./docs/tienda.html">Tienda</a>
-      <a href="./docs/stock.html">Stock</a>
-      <a href="./docs/contacto.html">Contacto</a>
-    </nav>
-    <div id="carritobtn"><button id="abrirCarrito">🛒 Ver carrito</button></div>
-  </header>
-  <main>
-    <div id="promociones">
-      <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
-    </div>
-    <div id="promos">
-      <img src="./img/promos/fullEcko1.jpg" alt="">
-    </div>
-    <div class="presentacion">
-      <h1>Rendimiento, estilo y comodidad.</h1>
-      
-    </div>
-    
-    <div id="call-tienda">
-      <img src="./img/imgs/zapatillas-blancas-en-modelo-de-mujer.jpg" alt="">
-      <div>
-        <p>En Urban Store nos apasiona el deporte y la moda.
-          Por eso ofrecemos prendas diseñadas para acompañarte dentro y fuera de la cancha. Nuestra misión es brindarte calidad, estilo y funcionalidad, para que te sientas bien mientras hacés lo que amás.</p>
-        <p id="boton"><a id="boton-tienda" href="./docs/tienda.html">Ir a tienda</a></p> 
-        <div id="call-suscripcion">
-          
-          <h2>¡No te pierdas nuestras ofertas exclusivas!</h2>
-          <form id="newsletter-form">
-          <p>Suscribite a nuestro newsletter y recibí un 15% de descuento en tu primera compra.</p>
-          <div>
-            <input type="email" placeholder="Ingresa tu email" required />
-            <p><button type="submit">Suscribirme</button></p>
-          </div>
-          </form>
-          </div>
+    <title>UrbanStore</title>
+  </head>
+
+  <body>
+    <header>
+      <div id="menu-toggle" class="menu-toggle">☰</div>
+      <a id="logo" href="#"
+        ><img src="./img/LOGOS/black.png" alt="UrbanStore"
+      /></a>
+      <nav id="nav-bar" class="menu-hidden">
+        <button id="cerrar-menu" class="cerrar-menu">✖</button>
+        <a href="./docs/tienda.html">Tienda</a>
+        <a href="./docs/stock.html">Stock</a>
+        <a href="./docs/contacto.html">Contacto</a>
+      </nav>
+      <div id="carritobtn"><button id="abrirCarrito">🛒 Carrito</button></div>
+    </header>
+
+    <main>
+      <div id="promociones">
+        <h3>
+          6 cuotas sin interes con Banco Galicia. 10% OFF pagando con
+          transferencia.
+        </h3>
+      </div>
+      <div id="promos">
+        <img src="./img/promos/fullEcko1.jpg" alt="" />
+      </div>
+      <div class="presentacion">
+        <h1>Rendimiento, estilo y comodidad.</h1>
+      </div>
+
+      <div id="call-tienda">
+        <img
+          src="./img/imgs/zapatillas-blancas-en-modelo-de-mujer.jpg"
+          alt=""
+        />
+        <div>
+          <p>
+            En Urban Store nos apasiona el deporte y la moda. Por eso ofrecemos
+            prendas diseñadas para acompañarte dentro y fuera de la cancha.
+            Nuestra misión es brindarte calidad, estilo y funcionalidad, para
+            que te sientas bien mientras hacés lo que amás.
+          </p>
+          <p id="boton">
+            <a id="boton-tienda" href="./docs/tienda.html">Ir a tienda</a>
+          </p>          
+        </div>
       </div>
       
+      <div id="tiendas-cercanas">
+        <h2>Tiendas Cercanas</h2>
+        <div id="iframe-tienda">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d52453.260270453786!2d-58.277160344685015!3d-34.74731017115602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMoov!5e0!3m2!1ses!2sar!4v1746386016331!5m2!1ses!2sar"
+          ></iframe>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div id="footer-data">
+        <div>
+          <h3>UrbanStore</h3>
+          <p>
+            Tu tienda de calzado deportivo favorita. Calidad, estilo y confort
+            en cada paso.
+          </p>
+        </div>
+        <div id="footer-links">
+          <h4>Seguinos en:</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">WhatsApp</a>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div id="footer-copiright">
+        <div>&copy; 2025 Tienda Zapatillas. Todos los derechos reservados.</div>
+      </div>
+    </footer>
+    <!--Carrito -->
+    <div id="carrito" class="carrito">
+      <button id="cerrarCarrito" class="cerrar-btn">✖</button>
+      <h2>🛒 Tu carrito</h2>
+      <button class="btn-vaciar" onclick="vaciarCarrito()">
+          Vaciar Carrito
+        </button>
+      <div id="carritoItems" class="carrito-items"></div>
 
-    </div>
-    <div id="tiendas-cercanas" >
-      <h2>Tiendas Cercanas</h2>
-      <div id="iframe-tienda">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d52453.260270453786!2d-58.277160344685015!3d-34.74731017115602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMoov!5e0!3m2!1ses!2sar!4v1746386016331!5m2!1ses!2sar" ></iframe>
+      <div class="carrito-total">
+        <p>Total: $<span id="totalCarrito">0</span></p>
+        <br>
+        
+        <a class="btn-comprar" href="./docs/compra.html">COMPRAR</a>
+        <br>
+        <br>
+        
+        
       </div>
     </div>
-  
-    
-    
-  </main>
-  <footer>
-    <div id="footer-data">
-      <div>
-        <h3>UrbanStore</h3>
-        <p>Tu tienda de calzado deportivo favorita. Calidad, estilo y confort en cada paso.</p>
-      </div>
-      <div id="footer-links">
-        <h4>Seguinos en:</h4>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">WhatsApp</a>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <div id="footer-copiright">
-      <div>
-        &copy; 2025 Tienda Zapatillas. Todos los derechos reservados.
-      </div>
-    </div>
-  </footer>
-  <!--Carrito -->
-<div id="carrito" class="carrito">
-  <button id="cerrarCarrito" class="cerrar-btn">✖</button>
-  <h2>🛒 Tu carrito</h2>
-  <div id="carritoItems" class="carrito-items"></div>
 
-  <div class="carrito-total">
-    <p>Total: $<span id="totalCarrito">0</span></p>
-    <a class="btn-comprar" href="./docs/compra.html">COMPRAR</a>
-    <button class="btn-comprar" onclick="vaciarCarrito()">Vaciar Carrito</button>
-  </div>
-</div>
-
-<script src="scripts/main.js"></script>
-<script src="scripts/carrito.js"></script>
-</body>
-
-
-
+    <script src="scripts/main.js"></script>
+    <script src="scripts/mainheader.js"></script>
+    <script src="scripts/carrito.js"></script>
+  </body>
 </html>

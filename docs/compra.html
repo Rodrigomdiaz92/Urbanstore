@@ -22,14 +22,18 @@
 
 <body>
   <header>
-    <a id="logo" href="../index.html"><img src="../img/LOGOS/black.png" alt=""></a>
-    <nav id="nav-bar">
-      <a href="../docs/tienda.html">Tienda</a>
-      <a href="../docs/stock.html">Stock</a>
-      <a href="../docs/contacto.html">Contacto</a>
-    </nav>
-    <div id="carritobtn"></div>
-  </header>
+      <div id="menu-toggle" class="menu-toggle">☰</div>
+      <a id="logo" href="../index.html"
+        ><img src="../img/LOGOS/black.png" alt="UrbanStore"
+      /></a>
+      <nav id="nav-bar" class="menu-hidden">
+        <button id="cerrar-menu" class="cerrar-menu">✖</button>
+        <a href="../docs/tienda.html">Tienda</a>
+        <a href="../docs/stock.html">Stock</a>
+        <a href="../docs/contacto.html">Contacto</a>
+      </nav>
+      <div id="carritobtn"></div>
+    </header>
   <main>
     <div id="promociones">
       <h3> 6 cuotas sin interes con Banco Galicia. 10% OFF pagando con transferencia.</h3>
@@ -97,6 +101,7 @@
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../scripts/mainheader.js"></script>
   <script src="../scripts/compra.js"></script>
   </body>
 
