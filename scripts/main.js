@@ -46,7 +46,7 @@ function publicarProductos(data) {
         <a href="detalleproducto.html?id=${recordId}">
           <img src="${p.imagen}" alt="${p.nombre}" />
         </a>
-        <h3>${p.nombre}</h3>
+        <a href="detalleproducto.html?id=${recordId}"><h3>${p.nombre}</h3></a>
         <h6>ENVÍO GRATIS</h6>
         <h5>$${p.precio}</h5>
         <button id="agregarProducto" onclick="agregarACarrito('${recordId}')">Agregar al carrito</button>
