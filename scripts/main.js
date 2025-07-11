@@ -63,6 +63,13 @@ function publicarProductos(data) {
 const selectCategorias = document.getElementById("filtro-categoria");
 const selectMarcas = document.getElementById("filtro-marca");
 
+function borrarFiltros(){
+  publicarProductos(localProductos);
+  selectCategorias.selectedIndex = 0;
+  selectMarcas.selectedIndex = 0;
+
+}
+
 
 
 
