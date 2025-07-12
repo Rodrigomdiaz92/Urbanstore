@@ -66,12 +66,12 @@ function publicarTabla(data) {
   tabla.innerHTML = `
         <tr>
           <th>Nombre</th>
-          <th>Marca</th>
+          
           <th>Color</th>          
-          <th>Stock</th>
+          
           <th>Precio</th>
-          <th>Editar</th>
-          <th>Eliminar</th>
+          <th></th>
+          <th></th>
         </tr>
 
   `;
@@ -83,16 +83,16 @@ function publicarTabla(data) {
     const fila = document.createElement("tr");
     fila.innerHTML = `
       <td><a href="detalleproducto.html?id=${id}">${p.nombre}</a></td>
-      <td>${p.marca}</td>
+      
       <td>${p.color}</td>
-      <td>${p.stock}</td>
+      
       <td>$${p.precio}</td>
       <td>
-        <button onclick="abrirModalEditar({id:'${id}', nombre: '${p.nombre}',categoria:'${p.categoria}', marca:'${p.marca}', color:'${p.color}', stock:'${p.stock}', precio: ${p.precio},rutaimg:'${p.imagen}', descripcion:'${p.descripcion}' ,})" class="btn-editar">
-          Editar
+        <button class="btn btn-editar" onclick="abrirModalEditar({id:'${id}', nombre: '${p.nombre}',categoria:'${p.categoria}', marca:'${p.marca}', color:'${p.color}', stock:'${p.stock}', precio: ${p.precio},rutaimg:'${p.imagen}', descripcion:'${p.descripcion}' ,})" >
+          <span class="material-icons">edit</span>
         </button>
       </td>
-      <td><button onclick="eliminarProducto('${id}')">Eliminar</button></td>
+      <td><button class="btn btn-eliminar" onclick="eliminarProducto('${id}')"><span class="material-icons">delete</span></button></td>
     `;
     tabla.appendChild(fila);
   });
@@ -153,36 +153,46 @@ function abrirModalAgregarProducto() {
 }
 
 function agregarProducto(){
-  let nombre = document.getElementById("nombreEditar").value;
-  let marca = document.getElementById("marcaEditar").value;
-  let color =document.getElementById("colorEditar").value;
-  let stock = document.getElementById("stockEditar").value;
-  let precio = document.getElementById("precioEditar").value;
-  let categoria = document.getElementById("categoriaEditar").value;
-  let imgRuta = document.getElementById("imgEditar").value;
-  let descripcion = document.getElementById("descripcionEditar").value;
 
-  let nuevoProducto = {
-          nombre: nombre,
-          categoria: categoria,
-          marca: marca,          
-          precio: parseInt(precio),
-          stock: stock,
-          color: color,
-          imagen: imgRuta,
-          descripcion: descripcion,        
-      };
+  let confirmar = confirm("¿Estas seguro de agregar el producto?")
+
+  if(confirmar){
+    let nombre = document.getElementById("nombreEditar").value;
+    let marca = document.getElementById("marcaEditar").value;
+    let color =document.getElementById("colorEditar").value;
+    let stock = document.getElementById("stockEditar").value;
+    let precio = document.getElementById("precioEditar").value;
+    let categoria = document.getElementById("categoriaEditar").value;
+    let imgRuta = document.getElementById("imgEditar").value;
+    let descripcion = document.getElementById("descripcionEditar").value;
+
+    let nuevoProducto = {
+            nombre: nombre,
+            categoria: categoria,
+            marca: marca,          
+            precio: parseInt(precio),
+            stock: stock,
+            color: color,
+            imagen: imgRuta,
+            descripcion: descripcion,        
+        };
 
 
-addToAirtable(nuevoProducto);
-getProductsAirtable();
-modalEditar.classList.remove("activo");
-Swal.fire("¡Producto Agregado!");
+  addToAirtable(nuevoProducto);
+  getProductsAirtable();
+  modalEditar.classList.remove("activo");
+  alert("¡Producto Agregado!")
+  //Swal.fire("¡Producto Agregado!");
+  }
+  
 
 }
 
 function eliminarProducto(recordId) {
-  fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${recordId}`, {
+  let confirmar = confirm("¿Estas seguro de eliminar el producto?")
+
+  if(confirmar){
+    fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${recordId}`, {
     method: "DELETE",
     headers: {
       'Authorization': `Bearer ${API_TOKEN}`,
@@ -193,7 +203,8 @@ function eliminarProducto(recordId) {
     if (response.ok) {
       console.log("Producto eliminado con éxito");
       getProductsAirtable();
-      Swal.fire("Producto Eliminado");     
+      alert("Producto Eliminado")
+      //Swal.fire("Producto Eliminado");     
     } else {
       return response.json().then(data => {
         console.error("Error al eliminar:", data);
@@ -203,11 +214,19 @@ function eliminarProducto(recordId) {
   .catch(error => {
     console.error("Error de red:", error);
   });
+
+  }
+  
 }
 
 
 function actualizarProducto(recordId){
-  let nombre = document.getElementById("nombreEditar").value;
+
+
+  let confirmar = confirm("¿Estas seguro de actualizar el producto?")
+
+  if(confirmar){
+    let nombre = document.getElementById("nombreEditar").value;
   let marca = document.getElementById("marcaEditar").value;
   let color =document.getElementById("colorEditar").value;
   let stock = document.getElementById("stockEditar").value;
@@ -243,7 +262,8 @@ function actualizarProducto(recordId){
       console.log("Producto actualizado correctamente");
       getProductsAirtable();
       modalEditar.classList.remove("activo");
-      Swal.fire("¡Producto Actualizado!");
+      alert("¡Producto Actualizado!")
+      //Swal.fire("¡Producto Actualizado!");
     } else {
       return response.json().then(data => {
         console.error("Error en la actualización:", data);
@@ -253,6 +273,10 @@ function actualizarProducto(recordId){
   .catch(error => {
     console.error("Error de red:", error);
   });
+    
+  }
+
+  
 
 
 

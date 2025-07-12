@@ -30,8 +30,7 @@ function publicarTabla(data) {
   tabla.innerHTML = " "
   tabla.innerHTML = `
         <tr>
-          <th>Nombre</th>
-          <th>Marca</th>
+          <th>Nombre</th>          
           <th>Color</th>          
           <th>Stock</th>
           <th>Precio</th>          
@@ -45,8 +44,7 @@ function publicarTabla(data) {
 
     const fila = document.createElement("tr");
     fila.innerHTML = `
-      <td><a href="detalleproducto.html?id=${id}">${p.nombre}</a></td>
-      <td>${p.marca}</td>
+      <td><a href="detalleproducto.html?id=${id}">${p.nombre}</a></td>      
       <td>${p.color}</td>
       <td>${p.stock}</td>
       <td>$${p.precio}</td>
