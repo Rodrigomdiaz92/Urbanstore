@@ -86,6 +86,31 @@ const addToAirtableCompra = async(compra) => {
 }
 
 
+function confirmacionCompra(compra){
+  const contenedor = document.getElementById("compra");
+  contenedor.innerHTML = " ";
+
+  contenedor.innerHTML = `
+      <div id="confirmacion-compra">
+      <h2>Compra Confirmada</h2>
+      <img src="../img/imgs/Tick Pop.gif" alt="confirmacion">
+      <h4>Datos del pedido</h4>
+      <p>Cliente: ${compra.nombre}</p>
+      <p>Correo: ${compra.correo}</p>
+      <p>Telefono: ${compra.contacto}</p>
+      <p>Direccion: ${compra.calle} ${compra.altura}, ${compra.localidad}</p>
+      <p>Codigo Postal: ${compra.codigo}</p>
+      <a href="../docs/tienda.html" id="boton-tienda">Volver a Tienda</a>  
+      </div>
+          
+      `;
+      //console.log(compra.contacto)
+      //console.log(compra.altura)
+      
+
+}
+
+
 
 function confirmarCompra() {
   let calle = document.getElementById("calle-entrega").value;
@@ -95,24 +120,26 @@ function confirmarCompra() {
   let nombre = document.getElementById("nombre-apellido").value;
   let correo = document.getElementById("correo-electronico").value;
   let contacto = document.getElementById("telefono").value;
-  Swal.fire({
-  title: "Compra Confirmada ",
-  icon: "success",
-  draggable: true
-  });
+  console.log(contacto)
+  console.log(altura)
+
+
+  
   let nuevacompra = {
           nombre: nombre,
           correo: correo,
-          contacto: toString(contacto),
+          //contacto: toString(contacto),
+          contacto: contacto,
           calle: calle,          
-          altura: toString(altura),
+          //altura: toString(altura),
+          altura: altura,
           localidad: localidad,
-          codigo: toString(codigo),                  
+          //codigo: toString(codigo),
+          codigo: codigo,                     
       };
-  addToAirtableCompra(nuevacompra);
-  
+  addToAirtableCompra(nuevacompra);  
   vaciarCarrito();
-  
+  confirmacionCompra(nuevacompra);  
 
 }
 
